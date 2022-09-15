@@ -1,0 +1,23 @@
+<div style="margin: 10px;">
+  <div style="display: flex; flex-direction: row;">
+    <section style="margin: 10px;">
+      <div>
+        <label for="size">Numero massimo: </label>
+        <input id="size" type="text" name="size" [ngModel]="maxListSize | async" (ngModelChange)="setMaxListSize($event);">
+      </div>
+      <div *ngFor="let group of groupList | async">
+        <label [for]="group.name">{{ group.name }}</label>
+        <input [id]="group.name" type="checkbox"  [ngModel]="group.active" (ngModelChange)="toggleGroupActive(group.name);">
+      </div>
+    </section>
+    <section style="margin: 10px;">
+      <textarea id="hashtags" name="hashtags" rows="15" cols="50" [(ngModel)]="hashtagList"></textarea>
+      <button (click)="refresh();">Refresh</button>
+    </section>
+    <section style="margin: 10px;">
+      <div *ngFor="let stat of stats">
+        <span>{{ stat.name + " -> " + stat.number }}</span>
+      </div>
+    </section>
+  </div>
+</div>
