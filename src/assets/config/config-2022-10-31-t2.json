@@ -4,7 +4,7 @@
     "uniqueness": false,
     "minimums": false,
     "deactivations": true,
-    "skiplines": false
+    "skiplines": true
   },
   "groups": [
     {
@@ -12,23 +12,22 @@
       "default": true,
       "list": [
         { "tag": "cosplay", "alwaysKeep": true },
-        { "tag": "cosplays" },
+        { "tag": "cosplays", "disabled": true },
         { "tag": "コスプレ" },
         { "tag": "cosplayer", "oneOf": "cosplayer" },
         { "tag": "cosplayers", "oneOf": "cosplayer" },
         { "tag": "cosplaying" },
-        { "tag": "cosplayinstagram", "oneOf": "cosplayInstagram" },
+        { "tag": "cosplayinstagram", "oneOf": "cosplayInstagram", "disabled": true },
         { "tag": "cosplayofinstagram", "oneOf": "cosplayInstagram" },
-        { "tag": "cosplaysofinstagram", "oneOf": "cosplayInstagram" },
-        { "tag": "cosplayerofinstagram", "oneOf": "cosplayInstagram" },
+        { "tag": "cosplaysofinstagram", "oneOf": "cosplayInstagram", "disabled": true },
+        { "tag": "cosplayerofinstagram", "oneOf": "cosplayInstagram", "disabled": true },
         { "tag": "cosplayersofinstagram", "oneOf": "cosplayInstagram" },
-        { "tag": "cosplayeronfinstagram", "oneOf": "cosplayInstagram" },
         { "tag": "cosplaymodel", "uniqueFor": "cosplayModel" },
         { "tag": "cosplaymodels", "uniqueFor": "cosplayModel", "disabled": true },
         { "tag": "cosplaycostume", "uniqueFor": "cosplayCostume", "disabled": true },
         { "tag": "cosplaycostumes", "uniqueFor": "cosplayCostume", "disabled": true },
-        { "tag": "cosplayitalia", "oneOf": "cosplayItalia" },
-        { "tag": "cosplayitaly", "oneOf": "cosplayItalia" },
+        { "tag": "cosplayitalia", "oneOf": "cosplayItalia", "disabled": true },
+        { "tag": "cosplayitaly", "oneOf": "cosplayItalia", "disabled": true },
         { "tag": "cosplayitaliani", "oneOf": "cosplayItalia" },
         { "tag": "cosplayeritaliani", "oneOf": "cosplayItalia" },
         { "tag": "italiancosplay", "oneOf": "cosplayItalia" },
@@ -57,7 +56,6 @@
       "list": [
         { "tag": "cosplayphoto", "uniqueFor": "cosplayPhoto" },
         { "tag": "cosplayphotos", "uniqueFor": "cosplayPhoto", "disabled": true },
-        { "tag": "cosplayphotograph", "uniqueFor": "cosplayPhoto" },
         { "tag": "cosplayphotography", "uniqueFor": "cosplayPhotog" },
         { "tag": "cosplayphotographer", "uniqueFor": "cosplayPhotog", "disabled": true },
         { "tag": "cosplayphotoshoot", "uniqueFor": "cosplayPhotoshoot", "disabled": true },
@@ -66,7 +64,7 @@
     },
     {
       "name": "main-others",
-      "default": false,
+      "default": true,
       "list": [
         { "tag": "cosplaylife" },
         { "tag": "cosplayway" },
@@ -78,7 +76,7 @@
     },
     {
       "name": "others",
-      "default": false,
+      "default": true,
       "list": [
         { "tag": "otaku" },
         { "tag": "kawaii" },
@@ -123,7 +121,7 @@
         { "tag": "animeart" },
         { "tag": "animecosplay", "uniqueFor": "animeCosplay" },
         { "tag": "animecosplays", "uniqueFor": "animeCosplay", "disabled": true },
-        { "tag": "animeedit", "uniqueFor": "animeEdit" },
+        { "tag": "animeedit", "uniqueFor": "animeEdit", "disabled": true },
         { "tag": "animeedits", "uniqueFor": "animeEdit", "disabled": true },
         { "tag": "cosplayanime" }
       ]

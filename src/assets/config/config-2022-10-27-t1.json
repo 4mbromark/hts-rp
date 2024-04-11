@@ -1,0 +1,88 @@
+{
+  "number": 20,
+  "groups": [
+    {
+      "name": "cosplay",
+      "default": true,
+      "list": [
+        { "tag": "cosplay" },
+        { "tag": "コスプレ" },
+        { "tag": "cosplayer" },
+        { "tag": "cosplayers" },
+        { "tag": "cosplaying" },
+        { "tag": "cosplaymodel" },
+        { "tag": "cosplayofinstagram" },
+        { "tag": "cosplayersofinstagram" },
+        { "tag": "cosplayphoto" },
+        { "tag": "cosplayphotography" },
+        { "tag": "cosplayitalia" },
+        { "tag": "italiancosplayer" },
+        { "tag": "cosplayeritaliani" },
+        { "tag": "cosplaymakeup" },
+        { "tag": "cosplaylife" },
+        { "tag": "cosplayitaliani" },
+        { "tag": "cosplaywig" },
+        { "tag": "cosplaylover" },
+        { "tag": "cosplaylove" },
+        { "tag": "worldcosplay" }
+      ]
+    },
+    {
+      "name": "polaroid",
+      "default": true,
+      "list": [
+        { "tag": "polaroid" },
+        { "tag": "photography" },
+        { "tag": "model" }
+      ]
+    },
+    {
+      "name": "cosplay-girl",
+      "default": false,
+      "list": [
+        { "tag": "cosplaygirl" },
+        { "tag": "cosplaygirls" }
+      ]
+    },
+    {
+      "name": "anime",
+      "default": false,
+      "list": [
+        { "tag": "anime" },
+        { "tag": "animeart" },
+        { "tag": "animecosplay" },
+        { "tag": "cosplayanime" },
+        { "tag": "animelove" },
+        { "tag": "animefans" }
+      ]
+    },
+    {
+      "name": "anime-girl",
+      "default": false,
+      "list": [
+        { "tag": "animegirl" }
+      ]
+    },
+    {
+      "name": "manga",
+      "default": false,
+      "list": [
+        { "tag": "manga" }
+      ]
+    },
+    {
+      "name": "other",
+      "default": false,
+      "list": [
+        { "tag": "otaku" },
+        { "tag": "kawaii" },
+        { "tag": "art" },
+        { "tag": "makeup" },
+        { "tag": "cute" },
+        { "tag": "fanart" },
+        { "tag": "japan" },
+        { "tag": "love" }
+      ]
+    }
+  ]
+}

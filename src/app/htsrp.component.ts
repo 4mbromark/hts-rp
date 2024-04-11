@@ -1,4 +1,4 @@
-import { Hashtag } from './htsrp.namespace';
+import { Hashtag, HashtagControlValues } from './htsrp.namespace';
 import { Observable } from 'rxjs';
 import { HtsRpService } from './htsrp.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,6 +14,9 @@ export class HtsRpComponent implements OnInit {
   public maxListSize: Observable<number>;
   public groupList: Observable<{ name: string, active?: boolean }[]>;
   public hashtagList: string = '';
+
+  public controlValues: Observable<HashtagControlValues>;
+
   public stats: { name: string, number: number }[] = [];
 
   constructor(
@@ -23,6 +26,8 @@ export class HtsRpComponent implements OnInit {
   ngOnInit(): void {
     this.maxListSize = this.hashtagService.getMaxListSize();
     this.groupList = this.hashtagService.getGroupList();
+
+    this.controlValues = this.hashtagService.getControlValues();
 
     this.hashtagService.getHashtagList().subscribe((hashtags: Hashtag[]) => {
       this.hashtagList = '';

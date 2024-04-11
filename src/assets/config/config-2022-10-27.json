@@ -1,11 +1,5 @@
 {
   "number": 20,
-  "controlValues": {
-    "uniqueness": false,
-    "minimums": false,
-    "deactivations": true,
-    "skiplines": false
-  },
   "groups": [
     {
       "name": "main",
@@ -13,7 +7,6 @@
       "list": [
         { "tag": "cosplay", "alwaysKeep": true },
         { "tag": "cosplays" },
-        { "tag": "コスプレ" },
         { "tag": "cosplayer", "oneOf": "cosplayer" },
         { "tag": "cosplayers", "oneOf": "cosplayer" },
         { "tag": "cosplaying" },
@@ -22,11 +15,10 @@
         { "tag": "cosplaysofinstagram", "oneOf": "cosplayInstagram" },
         { "tag": "cosplayerofinstagram", "oneOf": "cosplayInstagram" },
         { "tag": "cosplayersofinstagram", "oneOf": "cosplayInstagram" },
-        { "tag": "cosplayeronfinstagram", "oneOf": "cosplayInstagram" },
         { "tag": "cosplaymodel", "uniqueFor": "cosplayModel" },
-        { "tag": "cosplaymodels", "uniqueFor": "cosplayModel", "disabled": true },
-        { "tag": "cosplaycostume", "uniqueFor": "cosplayCostume", "disabled": true },
-        { "tag": "cosplaycostumes", "uniqueFor": "cosplayCostume", "disabled": true },
+        { "tag": "cosplaymodels", "uniqueFor": "cosplayModel" },
+        { "tag": "cosplaycostume", "uniqueFor": "cosplayCostume" },
+        { "tag": "cosplaycostumes", "uniqueFor": "cosplayCostume" },
         { "tag": "cosplayitalia", "oneOf": "cosplayItalia" },
         { "tag": "cosplayitaly", "oneOf": "cosplayItalia" },
         { "tag": "cosplayitaliani", "oneOf": "cosplayItalia" },
@@ -38,7 +30,6 @@
     {
       "name": "main-photography",
       "default": false,
-      "hide": true,
       "list": [
         { "tag": "photo", "uniqueFor": "photo" },
         { "tag": "photos", "uniqueFor": "photo" },
@@ -56,17 +47,16 @@
       "default": true,
       "list": [
         { "tag": "cosplayphoto", "uniqueFor": "cosplayPhoto" },
-        { "tag": "cosplayphotos", "uniqueFor": "cosplayPhoto", "disabled": true },
-        { "tag": "cosplayphotograph", "uniqueFor": "cosplayPhoto" },
+        { "tag": "cosplayphotos", "uniqueFor": "cosplayPhoto" },
         { "tag": "cosplayphotography", "uniqueFor": "cosplayPhotog" },
-        { "tag": "cosplayphotographer", "uniqueFor": "cosplayPhotog", "disabled": true },
-        { "tag": "cosplayphotoshoot", "uniqueFor": "cosplayPhotoshoot", "disabled": true },
-        { "tag": "cosplayphotoshoots", "uniqueFor": "cosplayPhotoshoot", "disabled": true }
+        { "tag": "cosplayphotographer", "uniqueFor": "cosplayPhotog" },
+        { "tag": "cosplayphotoshoot", "uniqueFor": "cosplayPhotoshoot" },
+        { "tag": "cosplayphotoshoots", "uniqueFor": "cosplayPhotoshoot" }
       ]
     },
     {
       "name": "main-others",
-      "default": false,
+      "default": true,
       "list": [
         { "tag": "cosplaylife" },
         { "tag": "cosplayway" },
@@ -77,37 +67,22 @@
       ]
     },
     {
-      "name": "others",
-      "default": false,
-      "list": [
-        { "tag": "otaku" },
-        { "tag": "kawaii" },
-        { "tag": "art" },
-        { "tag": "makeup" },
-        { "tag": "cute" },
-        { "tag": "fanart" },
-        { "tag": "japan" },
-        { "tag": "love" }
-      ]
-    },
-    {
       "name": "main-polaroid",
       "default": true,
       "list": [
         { "tag": "polaroid", "alwaysKeep": true },
         { "tag": "polaroids" },
         { "tag": "polaroidsx70" },
-        { "tag": "polaroidphoto", "oneOf": "polaroidPhoto", "disabled": true },
-        { "tag": "polaroidphotos", "oneOf": "polaroidPhoto", "disabled": true },
-        { "tag": "polaroidphotography", "uniqueFor": "polaroidPhotog", "disabled": true },
-        { "tag": "polaroidphotographer", "uniqueFor": "polaroidPhotog", "disabled": true },
+        { "tag": "polaroidphoto", "oneOf": "polaroidPhoto" },
+        { "tag": "polaroidphotos", "oneOf": "polaroidPhoto" },
+        { "tag": "polaroidphotography", "uniqueFor": "polaroidPhotog" },
+        { "tag": "polaroidphotographer", "uniqueFor": "polaroidPhotog" },
         { "tag": "polaroidoftheday" }
       ]
     },
     {
       "name": "main-instant",
       "default": false,
-      "hide": true,
       "list": [
         { "tag": "instantphoto", "uniqueFor": "polaroidInstant" },
         { "tag": "instantphotos", "uniqueFor": "polaroidInstant" },
@@ -120,12 +95,10 @@
       "default": false,
       "list": [
         { "tag": "anime" },
-        { "tag": "animeart" },
         { "tag": "animecosplay", "uniqueFor": "animeCosplay" },
-        { "tag": "animecosplays", "uniqueFor": "animeCosplay", "disabled": true },
+        { "tag": "animecosplays", "uniqueFor": "animeCosplay" },
         { "tag": "animeedit", "uniqueFor": "animeEdit" },
-        { "tag": "animeedits", "uniqueFor": "animeEdit", "disabled": true },
-        { "tag": "cosplayanime" }
+        { "tag": "animeedits", "uniqueFor": "animeEdit" }
       ]
     },
     {
@@ -133,16 +106,15 @@
       "default": false,
       "list": [
         { "tag": "manga" },
-        { "tag": "mangacosplay", "uniqueFor": "mangaCosplay", "disabled": true },
-        { "tag": "mangacosplays", "uniqueFor": "mangaCosplay", "disabled": true },
-        { "tag": "mangaedit", "uniqueFor": "mangaEdit", "disabled": true },
-        { "tag": "mangaedits", "uniqueFor": "mangaEdit", "disabled": true }
+        { "tag": "mangacosplay", "uniqueFor": "mangaCosplay" },
+        { "tag": "mangacosplays", "uniqueFor": "mangaCosplay" },
+        { "tag": "mangaedit", "uniqueFor": "mangaEdit" },
+        { "tag": "mangaedits", "uniqueFor": "mangaEdit" }
       ]
     },
     {
       "name": "comic",
       "default": false,
-      "hide": true,
       "list": [
         { "tag": "comics" }
       ]

@@ -1,4 +1,5 @@
-import { Hashtag, HashtagPickerConfig, HashtagGroup } from './htsrp.namespace';
+// tslint:disable: max-line-length
+import { Hashtag, HashtagPickerConfig, HashtagGroup, HashtagControlValues } from './htsrp.namespace';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
@@ -12,13 +13,15 @@ export class HtsRpService {
   private groupList: BehaviorSubject<{ name: string, active?: boolean }[]> = new BehaviorSubject<{ name: string, active?: boolean }[]>([]);
   private hashtagList: ReplaySubject<Hashtag[]> = new ReplaySubject<Hashtag[]>();
 
+  private controlValues: ReplaySubject<HashtagControlValues> = new ReplaySubject<HashtagControlValues>();
+
   constructor(
     private readonly http: HttpClient
   ) {
     this.http.get('assets/config/config.json').subscribe((data: HashtagPickerConfig) => {
       this.setConfiguration(data).then(() => {
         this.maxListSize.next(this.configuration.number);
-        this.groupList.next(this.configuration.groups.map(g => ({ name: g.name, active: g.default })));
+        this.groupList.next(this.configuration.groups.filter(g => !g.hide).map(g => ({ name: g.name, active: g.default })));
         this.updateHashtagList();
       }, () => {
         this.showError('ci sono dei problemi con il file config, vedi in console');
@@ -42,6 +45,10 @@ export class HtsRpService {
 
   public getHashtagList(): Observable<Hashtag[]> {
     return this.hashtagList.asObservable();
+  }
+
+  public getControlValues(): Observable<HashtagControlValues> {
+    return this.controlValues.asObservable();
   }
 
   public setConfiguration(configuration: HashtagPickerConfig): Promise<void> {
@@ -88,21 +95,24 @@ export class HtsRpService {
 
   public updateHashtagList(): void {
     let list: Hashtag[] = [];
+    const cv: HashtagControlValues = this.configuration.controlValues;
 
     this.groupList.getValue().filter(g => g.active).forEach((group: { name: string, active?: boolean }) => {
       list = list.concat(this.configuration.groups.find(g => g.name === group.name).list);
     });
 
-    /* list.filter(h => (h.oneOf || h.uniqueFor) && !h.alwaysKeep).forEach((hashtag: Hashtag) => {
+    list = list.filter(h => !h.disabled && cv.deactivations);
+
+    list.filter(h => ((h.oneOf && cv.minimums) || (h.uniqueFor && cv.uniqueness)) && (!h.alwaysKeep && cv.skiplines)).forEach((hashtag: Hashtag) => {
       const sublist: Hashtag[] = list.filter(h => hashtag.oneOf ? h.oneOf === hashtag.oneOf : h.uniqueFor === hashtag.uniqueFor);
       const index: number = Math.floor(Math.random() * sublist.length);
 
       sublist.filter(h => sublist.indexOf(h) !== index).forEach((ht: Hashtag) => {
         list.splice(list.indexOf(ht), 1);
       });
-    }); */
+    });
 
-    if (list.filter(h => h.alwaysKeep /*|| h.oneOf*/).length > this.maxListSize.getValue()) {
+    if (list.filter(h => ((h.alwaysKeep && cv.skiplines) || (h.oneOf && cv.minimums))).length > this.maxListSize.getValue()) {
       this.showError('il numero di hashtag richiesti è inferiore agli hashtag obbligatori');
       return;
     }
@@ -111,8 +121,8 @@ export class HtsRpService {
       const index: number = Math.floor(Math.random() * list.length);
       const hashtag: Hashtag = list[index];
 
-      if (hashtag.alwaysKeep /*|| hashtag.oneOf*/) {
-        // continue;
+      if ((hashtag.alwaysKeep && cv.skiplines) || (hashtag.oneOf && cv.minimums)) {
+        continue;
       }
 
       list.splice(index, 1);
